@@ -1,0 +1,8 @@
+version: 1
+tracks:
+  - name: design
+    triggers: ["src/components/**", "**/*.tsx"]
+    substrate: { kind: lib, source: "../design-lib" }
+  - name: infra
+    triggers: ["deploy/**", "**/*.tf"]
+    substrate: { kind: repo, path: "../infra-repo", look: ["deploy/"] }
