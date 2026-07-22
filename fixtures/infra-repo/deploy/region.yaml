@@ -1,0 +1,2 @@
+service: marketing-site
+region: us-central1   # single region; no multi-region config present anywhere in deploy/
