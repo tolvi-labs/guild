@@ -1,16 +1,14 @@
 # Output routing — where Guild's artifacts go
 
-Guild produces two artifacts from an approved brief. They go to different homes, and one of them is never committed.
+Guild produces two artifacts from an approved brief: the brief itself (the downstream handoff) and the durable why (a vault decision). Guild does **not** produce the implementation plan — that is Magellan's compile step, downstream of Bastion.
 
-## The plan — never committed
+## The brief — the downstream handoff
 
-Plans are pre-code artifacts; their value is review before code exists. So:
+The approved brief is what flows to the next stage; it is not committed:
 
-- **Canonical home:** your ticket tracker or wiki — wherever the plan gets peer-reviewed.
-- **Local working copy:** allowed under a gitignored `docs/plans/YYYY-MM-DD-<feature>.md`, for the session only.
-- **Never `git add` the plan.** It is globally gitignored; do not force-add it. A committed plan rots the moment code moves past it.
-
-Write the plan using the writing-plans task structure: exact file paths, a `Consumes`/`Produces` interfaces block per task, bite-sized TDD steps, and no placeholders.
+- **Content:** `{how, scope, appliedDirectives, resolvedGaps}` — the engineer-approved approach and scope, the directives that constrained the how, and each resolved gap.
+- **Downstream:** Bastion hardens the brief (the approach), then Magellan compiles it into the executable task DAG. Guild does not decompose the brief into tasks or attach per-task context — that decomposition-plus-context-compilation is the compile step, and it belongs to Magellan.
+- **Not Guild's job:** exact file paths, a `Consumes`/`Produces` interfaces block per task, and bite-sized TDD steps are Magellan's output (a Forge `tasks.json` superset), compiled from the hardened brief.
 
 ## The durable why — a vault decision
 

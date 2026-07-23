@@ -1,15 +1,15 @@
 ---
 name: guild
-description: Use for brainstorming HOW to solve a task and writing its implementation plan. Grounds the brainstorm in the actual codebase substrate (a lib's GUILD.md, an infra repo's config) and your vault, keeps the engineer in the loop on every scope decision, and asks rather than assuming textbook defaults. Terminal handoff is Bastion.
+description: Use for grounding the HOW of a task in the actual codebase substrate and forcing the engineer to resolve the unknowns before any plan exists. Reads the vault and confirms against the code where the vault is silent about what the task touches, keeps the engineer in the loop on every scope decision, and asks rather than assuming textbook defaults. Produces an approved brief, not a plan — plan-authoring is Magellan's. Terminal handoff is Bastion.
 ---
 
 # Guild
 
-Guild brainstorms *how* to solve the task at hand — grounded in what the substrate actually says — and writes the implementation plan. It applies existing guardrails and patterns, keeps you in the loop on every scope decision, and asks rather than assuming where the substrate is silent. Hardening the resulting plan is Bastion's job, not Guild's.
+Guild grounds the *how* of the task in what the substrate actually says and forces the engineer to understand the work — by surfacing where the vault is silent about the live code the task touches and making the engineer resolve those gaps, one at a time. It applies existing guardrails and patterns, keeps you in the loop on every scope decision, and asks rather than assuming where the substrate is silent. Its deliverable is an approved brief plus a fuller vault; it does not write the implementation plan (that is Magellan's job) and it does not harden it (that is Bastion's).
 
-**Announce at start:** "Using Guild to brainstorm the how and write the plan."
+**Announce at start:** "Using Guild to ground the how in the substrate and surface the gaps you need to resolve."
 
-Pipeline: **Guild (brainstorm → plan) → Bastion (harden) → execute.**
+Pipeline: **Guild (brief) → Bastion (harden the approach) → Magellan (compile the plan) → execute.**
 
 ## Reference contracts (read as needed)
 
@@ -42,7 +42,7 @@ You now hold the vault digest and one digest per implicated track. Converge the 
 - **Coverage check.** A reader only reports within its own track's remit, so before finalizing, list the aspects the task requires and confirm each is addressed by a digest (a directive or a pattern). Any required aspect that **no digest addresses** — because no track governs it — is itself a gap: ask the engineer one question about it. Never assume a default for an un-addressed aspect.
 - Ask one question at a time; prefer multiple-choice when it fits.
 
-**HARD-GATE:** Do not finalize a brief — and do not proceed to writing any plan — until the engineer has explicitly approved BOTH the *how* and the *scope* (what is in and what is out).
+**HARD-GATE:** Do not finalize a brief — and do not proceed to routing outputs or handing off — until the engineer has explicitly approved BOTH the *how* and the *scope* (what is in and what is out). Every gap the engineer resolves here is comprehension forced at a consequential unknown; that is Guild's whole job, and it is why Guild does not hand back a finished plan to rubber-stamp.
 
 The output of this phase is the **agreed brief**:
 
@@ -55,13 +55,13 @@ The output of this phase is the **agreed brief**:
 }
 ```
 
-## Phase 5 — Write the plan and route the outputs
+## Phase 5 — Route the outputs
 
-From the agreed brief, produce two artifacts. Follow `references/output-routing.md`.
+Guild does not write the implementation plan — that is Magellan's job, downstream. From the agreed brief, produce two things. Follow `references/output-routing.md`.
 
-1. **The plan.** Write it as a task-by-task plan (exact paths, `Consumes`/`Produces` per task, bite-sized TDD steps, no placeholders) to a gitignored working copy `docs/plans/YYYY-MM-DD-<feature>.md`. **Do not `git add` it** — its canonical home is your ticket tracker or wiki for review.
-2. **The durable why.** Draft a vault decision in the repo's `vault/decisions/` (via `tolvi sync decision`) capturing the approach, the `appliedDirectives` (with sources), and the `resolvedGaps`. This becomes substrate the vault track reads next session.
+1. **The brief is the handoff artifact.** The approved `{how, scope, appliedDirectives, resolvedGaps}` is what flows downstream — Bastion hardens it, then Magellan compiles it into the executable task DAG. Guild does not decompose it into tasks or attach per-task context; that is the compile step and it belongs to Magellan.
+2. **The durable why.** Draft a vault decision in the repo's `vault/decisions/` (via `tolvi sync decision`) capturing the approach, the `appliedDirectives` (with sources), and the `resolvedGaps`. This becomes substrate the vault track reads next session, and it is how a resolved gap grows the vault.
 
 ## Phase 6 — Hand off to Bastion (terminal)
 
-Hardening the plan is Bastion's job, not Guild's. Offer to invoke `/bastion` on the freshly written plan, and stop. Do not attack, harden, or execute the plan yourself — that is the crucible's role, and execution is the downstream flow's role. This is Guild's terminal state.
+Hardening the approach is Bastion's job, not Guild's. Offer to invoke `/bastion` on the freshly approved brief, and stop. Do not harden, compile, or execute — Bastion hardens the brief, Magellan compiles the plan from it, and only then does execution begin. This is Guild's terminal state.
