@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # install.sh — install the Guild Claude Code skill.
 #
-# Default: symlink skills/guild → ~/.claude/skills/guild so that `git pull` on
+# Default: symlink skills/tolvi-guild → ~/.claude/skills/tolvi-guild so that `git pull` on
 # the tolvi-labs/guild repo updates the skill automatically. Use --copy for a
 # frozen snapshot isolated from repo updates.
 #
@@ -17,7 +17,7 @@ set -euo pipefail
 # Resolve the directory this script lives in, so the source is found regardless
 # of where the user invoked it from.
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-SOURCE_SKILL="$SCRIPT_DIR/skills/guild"
+SOURCE_SKILL="$SCRIPT_DIR/skills/tolvi-guild"
 
 DEST_BASE="${HOME}/.claude/skills"
 MODE="symlink"
@@ -28,12 +28,12 @@ usage() {
   cat <<EOF
 Usage: bash install.sh [--copy] [--uninstall] [--path <dir>] [--force]
 
-Default: symlink skills/guild into \$HOME/.claude/skills/guild so that
+Default: symlink skills/tolvi-guild into \$HOME/.claude/skills/tolvi-guild so that
          'git pull' on the tolvi-labs/guild repo updates the skill automatically.
 
 Flags:
   --copy         Deep-copy the skill instead of symlinking.
-  --uninstall    Remove the installed guild/ skill.
+  --uninstall    Remove the installed tolvi-guild/ skill.
   --path <dir>   Install destination base (default: \$HOME/.claude/skills).
   --force        Overwrite an existing install. Refuses by default.
   -h, --help     Show this help.
@@ -51,7 +51,7 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-DEST_DIR="$DEST_BASE/guild"
+DEST_DIR="$DEST_BASE/tolvi-guild"
 
 if [[ "$ACTION" == "uninstall" ]]; then
   if [[ -L "$DEST_DIR" ]]; then
@@ -98,7 +98,7 @@ cat <<EOF
 
 ✓ Guild installed.
 Next steps:
-  - In any Claude Code session, invoke /guild to load the skill.
+  - In any Claude Code session, invoke /tolvi-guild to load the skill.
   - Point Guild at a repo's substrate by adding a guild.manifest.yml at its root
     (see the README). A lib publishes its rules as a GUILD.md.
 EOF

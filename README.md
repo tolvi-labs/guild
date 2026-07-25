@@ -15,10 +15,10 @@ Guild (brainstorm the how → write the plan) → Bastion (harden) → execute
 ```shell
 git clone https://github.com/tolvi-labs/guild
 cd guild
-./install.sh          # symlinks skills/guild into ~/.claude/skills/guild
+./install.sh          # symlinks skills/tolvi-guild into ~/.claude/skills/tolvi-guild
 ```
 
-Invoke `/guild` in any Claude Code session. Use `./install.sh --copy` for a frozen snapshot, or `--uninstall` to remove.
+Invoke `/tolvi-guild` in any Claude Code session. Use `./install.sh --copy` for a frozen snapshot, or `--uninstall` to remove.
 
 ## The core idea
 
@@ -65,7 +65,7 @@ A reader is structurally forbidden from filling a gap itself. That mechanizes "a
 ## Repo layout
 
 ```
-skills/guild/
+skills/tolvi-guild/
   SKILL.md            # the six-phase orchestrator
   references/         # the contracts (manifest schema, resolver, reader contract, vault track, GUILD.md convention, output routing)
   agents/track-reader.md

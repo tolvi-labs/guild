@@ -21,7 +21,7 @@ Engineering decisions only — the *why* of the code. **Never** put client or pr
 ```shell
 git clone https://github.com/tolvi-labs/guild
 cd guild
-./install.sh          # symlinks skills/guild into ~/.claude/skills/guild (invoke with /guild)
+./install.sh          # symlinks skills/tolvi-guild into ~/.claude/skills/tolvi-guild (invoke with /tolvi-guild)
 ```
 
 To point Guild at a repo's substrate, add a `guild.manifest.yml` at that repo's root (see the [README](README.md)); a library publishes its rules as a `GUILD.md`.

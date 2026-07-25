@@ -1,15 +1,15 @@
 ---
-name: guild
-description: Use for grounding the HOW of a task in the actual codebase substrate and forcing the engineer to resolve the unknowns before any plan exists. Reads the vault and confirms against the code where the vault is silent about what the task touches, keeps the engineer in the loop on every scope decision, and asks rather than assuming textbook defaults. Produces an approved brief, not a plan — plan-authoring is the downstream compile step's. Terminal handoff is Bastion.
+name: tolvi-guild
+description: Use for grounding the HOW of a task in the actual codebase substrate and forcing the engineer to resolve the unknowns before any plan exists. Reads the vault and confirms against the code where the vault is silent about what the task touches, keeps the engineer in the loop on every scope decision, and asks rather than assuming textbook defaults. Produces an approved brief, not a plan — plan-authoring belongs to a downstream compile step. Terminal handoff is Bastion.
 ---
 
 # Guild
 
-Guild grounds the *how* of the task in what the substrate actually says and forces the engineer to understand the work — by surfacing where the vault is silent about the live code the task touches and making the engineer resolve those gaps, one at a time. It applies existing guardrails and patterns, keeps you in the loop on every scope decision, and asks rather than assuming where the substrate is silent. Its deliverable is an approved brief plus a fuller vault; it does not write the implementation plan (that is the downstream compile step's job) and it does not harden it (that is Bastion's).
+Guild grounds the *how* of the task in what the substrate actually says and forces the engineer to understand the work — by surfacing where the vault is silent about the live code the task touches and making the engineer resolve those gaps, one at a time. It applies existing guardrails and patterns, keeps you in the loop on every scope decision, and asks rather than assuming where the substrate is silent. Its deliverable is an approved brief plus a fuller vault; it does not write the implementation plan (that is a downstream compile step's job) and it does not harden it (that is Bastion's).
 
 **Announce at start:** "Using Guild to ground the how in the substrate and surface the gaps you need to resolve."
 
-Pipeline: **Guild (brief) → Bastion (harden the approach) → the downstream compile step (compile the plan) → execute.**
+Pipeline: **Guild (brief) → Bastion (harden the approach) → plan-compile (downstream) → execute.**
 
 ## Reference contracts (read as needed)
 
@@ -57,11 +57,11 @@ The output of this phase is the **agreed brief**:
 
 ## Phase 5 — Route the outputs
 
-Guild does not write the implementation plan — that is the downstream compile step's job, downstream. From the agreed brief, produce two things. Follow `references/output-routing.md`.
+Guild does not write the implementation plan — that is the downstream compile step's job. From the agreed brief, produce two things. Follow `references/output-routing.md`.
 
-1. **The brief is the handoff artifact.** The approved `{how, scope, appliedDirectives, resolvedGaps}` is what flows downstream — Bastion hardens it, then the downstream compile step compiles it into the executable task DAG. Guild does not decompose it into tasks or attach per-task context; that is the compile step and it belongs to the downstream compile step.
+1. **The brief is the handoff artifact.** The approved `{how, scope, appliedDirectives, resolvedGaps}` is what flows downstream — Bastion hardens it, then a downstream step compiles it into the executable task DAG. Guild does not decompose it into tasks or attach per-task context; that is the compile step, downstream.
 2. **The durable why.** Draft a vault decision in the repo's `vault/decisions/` (via `tolvi sync decision`) capturing the approach, the `appliedDirectives` (with sources), and the `resolvedGaps`. This becomes substrate the vault track reads next session, and it is how a resolved gap grows the vault.
 
 ## Phase 6 — Hand off to Bastion (terminal)
 
-Hardening the approach is Bastion's job, not Guild's. Offer to invoke `/bastion` on the freshly approved brief, and stop. Do not harden, compile, or execute — Bastion hardens the brief, the downstream compile step compiles the plan from it, and only then does execution begin. This is Guild's terminal state.
+Hardening the approach is Bastion's job, not Guild's. Offer to invoke `/tolvi-bastion` on the freshly approved brief, and stop. Do not harden, compile, or execute — Bastion hardens the brief, a downstream step compiles the plan from it, and only then does execution begin. This is Guild's terminal state.

@@ -1,14 +1,14 @@
 # Output routing — where Guild's artifacts go
 
-Guild produces two artifacts from an approved brief: the brief itself (the downstream handoff) and the durable why (a vault decision). Guild does **not** produce the implementation plan — that is the downstream compile step's compile step, downstream of Bastion.
+Guild produces two artifacts from an approved brief: the brief itself (the downstream handoff) and the durable why (a vault decision). Guild does **not** produce the implementation plan — that is the compile step, downstream of Bastion.
 
 ## The brief — the downstream handoff
 
 The approved brief is what flows to the next stage; it is not committed:
 
 - **Content:** `{how, scope, appliedDirectives, resolvedGaps}` — the engineer-approved approach and scope, the directives that constrained the how, and each resolved gap.
-- **Downstream:** Bastion hardens the brief (the approach), then the downstream compile step compiles it into the executable task DAG. Guild does not decompose the brief into tasks or attach per-task context — that decomposition-plus-context-compilation is the compile step, and it belongs to the downstream compile step.
-- **Not Guild's job:** exact file paths, a `Consumes`/`Produces` interfaces block per task, and bite-sized TDD steps are the downstream compile step's output (a the execution engine `tasks.json` superset), compiled from the hardened brief.
+- **Downstream:** Bastion hardens the brief (the approach), then a downstream step compiles it into the executable task DAG. Guild does not decompose the brief into tasks or attach per-task context — that decomposition-plus-context-compilation is the compile step, downstream.
+- **Not Guild's job:** exact file paths, a `Consumes`/`Produces` interfaces block per task, and bite-sized TDD steps are the compile step's output (a downstream `tasks.json` format), compiled from the hardened brief.
 
 ## The durable why — a vault decision
 
