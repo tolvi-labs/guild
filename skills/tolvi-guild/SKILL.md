@@ -41,6 +41,18 @@ You now hold the vault digest and one digest per implicated track. Converge the 
 - **Every `gap`** (from any reader) and **every contradiction flag** becomes **one engineer question**. Never fill a gap yourself, and never assume a textbook default.
 - **Coverage check.** A reader only reports within its own track's remit, so before finalizing, list the aspects the task requires and confirm each is addressed by a digest (a directive or a pattern). Any required aspect that **no digest addresses** — because no track governs it — is itself a gap: ask the engineer one question about it. Never assume a default for an un-addressed aspect.
 - Ask one question at a time; prefer multiple-choice when it fits.
+- **Question shape.** Format each question as labeled chunks, never one paragraph:
+
+  ```
+  **Q<n> — <short label>**
+
+  Context: <the grounding fact — one or two short lines>
+  Proposal: <what you're proposing, if there is one>
+  Risks: <what's at stake if this is decided wrong, when applicable>
+  Confirm: <the actual yes/no or multiple-choice ask, isolated>
+  ```
+
+  Omit a label that has nothing to say (a pure directive confirmation may skip Proposal, and most questions have no Risks worth naming). Keep every line short — this should be scannable at a glance, not read as prose broken up by bold words.
 
 **HARD-GATE:** Do not finalize a brief — and do not proceed to routing outputs or handing off — until the engineer has explicitly approved BOTH the *how* and the *scope* (what is in and what is out). Every gap the engineer resolves here is comprehension forced at a consequential unknown; that is Guild's whole job, and it is why Guild does not hand back a finished plan to rubber-stamp.
 
