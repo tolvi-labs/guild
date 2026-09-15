@@ -1,0 +1,17 @@
+{
+  "name": "tolvi-guild",
+  "description": "Substrate-grounded brainstorming and planning: works out the how against the guardrails already in your codebase, and asks where the code is silent.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Tolvi Labs",
+    "url": "https://tolvilabs.com"
+  },
+  "homepage": "https://tolvilabs.com/guild",
+  "repository": "https://github.com/tolvi-labs/guild",
+  "license": "Apache-2.0",
+  "keywords": [
+    "vault",
+    "planning",
+    "brainstorming"
+  ]
+}
