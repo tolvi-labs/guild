@@ -1,0 +1,34 @@
+{
+  "name": "tolvi-guild",
+  "version": "0.1.0",
+  "description": "Substrate-grounded brainstorming and planning",
+  "author": {
+    "name": "Tolvi Labs",
+    "url": "https://tolvilabs.com"
+  },
+  "homepage": "https://tolvilabs.com/guild",
+  "repository": "https://github.com/tolvi-labs/guild",
+  "license": "Apache-2.0",
+  "keywords": [
+    "vault",
+    "planning",
+    "brainstorming"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Guild",
+    "shortDescription": "Substrate-grounded brainstorming and planning",
+    "longDescription": "Give Guild an intent and it works out how to solve it against the guardrails already living in your codebase, then writes the brief. Where your code is silent it asks you rather than assuming a default.",
+    "developerName": "Tolvi Labs",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://tolvilabs.com",
+    "privacyPolicyURL": "https://tolvilabs.com/privacy",
+    "termsOfServiceURL": "https://tolvilabs.com/terms",
+    "brandColor": "#84CC16"
+  }
+}

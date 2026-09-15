@@ -1,0 +1,19 @@
+{
+  "name": "tolvi-guild",
+  "version": "0.1.0",
+  "description": "Substrate-grounded brainstorming and planning",
+  "author": {
+    "name": "Tolvi Labs",
+    "url": "https://tolvilabs.com"
+  },
+  "homepage": "https://tolvilabs.com/guild",
+  "repository": "https://github.com/tolvi-labs/guild",
+  "license": "Apache-2.0",
+  "keywords": [
+    "vault",
+    "planning",
+    "brainstorming"
+  ],
+  "displayName": "Guild",
+  "skills": "./skills/"
+}
