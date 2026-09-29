@@ -1,6 +1,6 @@
 # Contributing to Guild
 
-Guild is a Claude Code skill that works out *how* to solve a task against the guardrails already in your codebase, then writes the plan and hands it to Bastion to harden. Contributions welcome — with one rule that's different here.
+Guild is a Claude Code skill that works out *how* to solve a task against the guardrails already in your codebase, then writes the plan and hands it to Bastion to harden. Contributions welcome, with one rule that's different here.
 
 ## The rule that's different: change the tool, record the why
 
@@ -14,7 +14,7 @@ Commit it alongside your code. PRs that change behavior without a decision will 
 
 ## What belongs in the public vault
 
-Engineering decisions only — the *why* of the code. **Never** put client or project names, JIRA keys, business strategy, competitive analysis, revenue, PII, or security-incident specifics in this repo; those belong in a private vault. Use placeholders like `PROJ-142` for tickets. See [`vault/README.md`](vault/README.md).
+Engineering decisions only: the *why* of the code. **Never** put client or project names, JIRA keys, business strategy, competitive analysis, revenue, PII, or security-incident specifics in this repo; those belong in a private vault. Use placeholders like `PROJ-142` for tickets. See [`vault/README.md`](vault/README.md).
 
 ## Local setup
 
