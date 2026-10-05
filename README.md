@@ -2,12 +2,12 @@
 
 **Substrate-grounded brainstorming & planning for Claude Code.**
 
-Guild is a Claude Code skill that works out *how* to solve a task against the guardrails already in your codebase: applying whatever rules and patterns exist, keeping you in the loop on every scope decision, and asking rather than assuming where your code is silent. It then writes the implementation plan and hands it to [Bastion](https://github.com/tolvi-labs/bastion) to harden.
+Guild is a Claude Code skill that works out *how* to solve a task against the guardrails already in your codebase: applying whatever rules and patterns exist, keeping you in the loop on every scope decision, and asking rather than assuming where your code is silent. It produces an approved brief and hands it to [Bastion](https://github.com/tolvi-labs/bastion) to harden; [Magellan](https://github.com/tolvi-labs/magellan) then compiles it into the implementation plan.
 
 It is the planning layer of the Tolvi stack:
 
 ```
-Guild (brainstorm the how → write the plan) → Bastion (harden) → execute
+Vault → Guild (brief) → Bastion (harden) → Magellan (compile) → Forge / Claude Code / cloud (execute)
 ```
 
 ## Install
@@ -59,8 +59,8 @@ A reader is structurally forbidden from filling a gap itself. That mechanizes "a
 2. **Resolve**: match the change surface against each track's triggers; a non-implicated track is never read.
 3. **Fan-out**: one `track-reader` per implicated track, in parallel.
 4. **Brainstorm**: converge the how and the scope one question at a time; nothing proceeds until you approve both.
-5. **Write the plan**: and deposit the durable *why* as a vault decision.
-6. **Hand off to Bastion**: offer `/bastion` on the plan, and stop. Guild never hardens or executes.
+5. **Route the outputs**: the approved brief is the handoff artifact, and the durable *why* is deposited as a vault decision.
+6. **Hand off to Bastion**: offer `/tolvi-bastion` on the brief, and stop. Guild never hardens or executes.
 
 ## Repo layout
 
